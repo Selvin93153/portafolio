@@ -42,42 +42,42 @@ export default function Home() {
     { 
       name: 'React', 
       description: 'Biblioteca de JavaScript para construir interfaces de usuario interactivas y reutilizables. La he utilizado en proyectos para crear componentes dinámicos y manejar estados de forma eficiente.',
-      image: 'src/images/reac.jpeg', 
+      image: '/images/reac.jpeg', 
     },
     { 
       name: 'TypeScript', 
       description: 'Superset de JavaScript que añade tipado estático. Me ha permitido trabajar con mayor seguridad en proyectos React, detectando errores en tiempo de desarrollo.',
-      image: 'src/images/typescript.webp',
+      image: '/images/typescript.webp',
     },
     { 
       name: 'JavaScript', 
       description: 'Lenguaje base del desarrollo web. Lo he utilizado para manipular el DOM, manejar eventos y construir lógicas básicas en aplicaciones frontend',
-      image: 'src/images/javascript.png',
+      image: '/images/javascript.png',
     },
     { 
       name: 'C#', 
       description: 'Lenguaje moderno y versátil de Microsoft. Lo he usado en el desarrollo de aplicaciones de escritorio y en proyectos que requieren integración con bases de datos usando .NET.',
-      image: 'src/images/csharp.png',
+      image: '/images/csharp.png',
     },
     { 
       name: 'MySQL', 
       description: 'Sistema de gestión de bases de datos relacional. Lo he utilizado para crear y consultar bases de datos en proyectos académicos y CRUD simples.',
-      image: 'src/images/mysql.png',
+      image: '/images/mysql.png',
     },
     { 
       name: 'PostgreSQL', 
       description: 'Base de datos relacional avanzada y robusta. La he usado en proyectos donde se requería integridad de datos y relaciones complejas.',
-      image: 'src/images/postgres.png',
+      image: '/images/postgres.png',
     },
     { 
       name: 'SQL Server', 
       description: 'Plataforma de bases de datos de Microsoft. La he empleado para manejar datos, realizar consultas y crear procedimientos almacenados en entornos empresariales',
-      image: 'src/images/sqlserver.jpg',
+      image: '/images/sqlserver.jpg',
     },
     { 
       name: 'Postman', 
       description: 'Herramienta para probar APIs REST. La he utilizado para enviar peticiones, verificar respuestas y depurar endpoints durante el desarrollo de aplicaciones backend.',
-      image: 'src/images/postman.jpeg',
+      image: '/images/postman.jpeg',
     },
   ];
 

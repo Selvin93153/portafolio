@@ -21,7 +21,7 @@ export default function Header() {
       {/* Foto personal */}
       <Avatar
         alt="Foto de Selvin"
-        src= "src/images/perfil.jpeg" 
+        src= "/images/perfil.jpeg" 
         sx={{
           width: isSmallScreen ? 150 : 300,
           height: isSmallScreen ? 150 : 300,
