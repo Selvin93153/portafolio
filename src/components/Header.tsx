@@ -33,7 +33,7 @@ export default function Header() {
 
       {/* Nombre */}
       <Typography variant={isSmallScreen ? 'h4' : 'h2'} fontWeight="bold">
-        ¡Hola! Soy Selvin
+        ¡Hola!  Soy Selvin
       </Typography>
 
       {/* Descripción */}
