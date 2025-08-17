@@ -8,7 +8,7 @@ export default function Header() {
     <Box
       sx={{
         height: '100vh',
-        background: 'linear-gradient(to right, #090708ff, #31e15aff)',
+        background: 'linear-gradient(to right, #090708ff, #31b2e1ff)',
         color: 'white',
         display: 'flex',
         flexDirection: 'column',

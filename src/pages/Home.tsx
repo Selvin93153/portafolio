@@ -109,7 +109,7 @@ export default function Home() {
       <section id="tech">
         <Container sx={{ py: 8 }}>
           <Typography variant="h4" gutterBottom sx={{ textAlign: 'center', mb: 4 }}>
-            🛠 Tecnologías
+            🛠 TECNOLOGIAS QUE DOMINO
           </Typography>
 
           <Box
@@ -142,7 +142,7 @@ export default function Home() {
       <section id="tasks">
         <Container sx={{ py: 8 }}>
           <Box display="flex" justifyContent="space-between" alignItems="center">
-            <Typography variant="h4">📚 Investigaciones</Typography>
+            <Typography variant="h4">📚TAREAS REALIZADAS</Typography>
             <Button variant="contained" onClick={() => navigate('/nueva-tarea')}>
               Agregar tarea
             </Button>
@@ -163,7 +163,7 @@ export default function Home() {
       {/* Proyectos */}
       <section id="projects">
         <Container sx={{ py: 8 }}>
-          <Typography variant="h4" gutterBottom>💡 Proyectos</Typography>
+          <Typography variant="h4" gutterBottom>💡 PROYECTOS PERSONALES</Typography>
           <Typography>Ninguno agregado.</Typography>
         </Container>
       </section>
