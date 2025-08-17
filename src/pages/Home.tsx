@@ -47,32 +47,32 @@ export default function Home() {
     { 
       name: 'TypeScript', 
       description: 'Superset de JavaScript que añade tipado estático. Me ha permitido trabajar con mayor seguridad en proyectos React, detectando errores en tiempo de desarrollo.',
-      image: 'src/images/typescript.jpeg',
+      image: 'src/images/typescript.webp',
     },
     { 
       name: 'JavaScript', 
       description: 'Lenguaje base del desarrollo web. Lo he utilizado para manipular el DOM, manejar eventos y construir lógicas básicas en aplicaciones frontend',
-      image: 'src/images/javascript.jpeg',
+      image: 'src/images/javascript.png',
     },
     { 
       name: 'C#', 
       description: 'Lenguaje moderno y versátil de Microsoft. Lo he usado en el desarrollo de aplicaciones de escritorio y en proyectos que requieren integración con bases de datos usando .NET.',
-      image: 'src/images/csharp.jpeg',
+      image: 'src/images/csharp.png',
     },
     { 
       name: 'MySQL', 
       description: 'Sistema de gestión de bases de datos relacional. Lo he utilizado para crear y consultar bases de datos en proyectos académicos y CRUD simples.',
-      image: '/images/mysql-logo.png',
+      image: 'src/images/mysql.png',
     },
     { 
       name: 'PostgreSQL', 
       description: 'Base de datos relacional avanzada y robusta. La he usado en proyectos donde se requería integridad de datos y relaciones complejas.',
-      image: '/images/postgresql-logo.png',
+      image: 'src/images/postgres.png',
     },
     { 
       name: 'SQL Server', 
       description: 'Plataforma de bases de datos de Microsoft. La he empleado para manejar datos, realizar consultas y crear procedimientos almacenados en entornos empresariales',
-      image: '/images/sqlserver-logo.png',
+      image: 'src/images/sqlserver.jpg',
     },
     { 
       name: 'Postman', 
