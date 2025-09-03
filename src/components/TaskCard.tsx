@@ -6,7 +6,7 @@ type Props = {
   onDelete: (id: string) => void;
 };
 
-export default function TaskCard({ task, onDelete }: Props) {
+export default function TaskCard({ task }: Props) {
   const navigate = useNavigate();
 
   return (
@@ -19,7 +19,6 @@ export default function TaskCard({ task, onDelete }: Props) {
       </CardContent>
       <CardActions>
         <Button size="small" onClick={() => navigate(`/tarea/${task.id}`)}>Ver más</Button>
-        <Button size="small" color="error" onClick={() => onDelete(task.id)}>Eliminar</Button>
       </CardActions>
     </Card>
   );

@@ -1,172 +1,283 @@
-import { Box, Button, Container, Typography, Stack } from '@mui/material';
-import Header from '../components/Header';
-import TechCard from '../components/TechCard';
-import TaskCard from '../components/TaskCard';
-
-import { useEffect, useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
-
-type Task = {
-  id: string;
-  title: string;
-  summary: string;
-  content: string;
-};
+import {
+  Box,
+  Container,
+  Typography,
+  Card,
+  CardContent,
+  CardMedia,
+  Button,
+  Fab,
+  Tooltip,
+} from "@mui/material";
+import Header from "../components/Header";
+import TaskCard from "../components/TaskCard";
+import { tasks } from "../data/tasks";
+import Slider from "react-slick"; // Carrusel
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export default function Home() {
-  const [tasks, setTasks] = useState<Task[]>([]);
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  useEffect(() => {
-    const stored = localStorage.getItem('tasks');
-    if (stored) {
-      setTasks(JSON.parse(stored));
-    } else {
-      setTasks([]);
+  // Función para hacer scroll suave
+  const handleScroll = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
     }
-  }, [location]); // Se recarga tareas al cambiar de ruta
-
-  const deleteTask = (id: string) => {
-    const updated = tasks.filter(task => task.id !== id);
-    setTasks(updated);
-    localStorage.setItem('tasks', JSON.stringify(updated));
   };
 
-  const scrollTo = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  // Configuración del carrusel
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 4000,  //velocidad del carrusel
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 0, //velocidad de transicion de tarjetas
+    responsive: [
+      {
+        breakpoint: 960, // Tablets
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 600, // Móviles
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   };
-
-  const technologies = [
-    { 
-      name: 'React', 
-      description: 'Biblioteca de JavaScript para construir interfaces de usuario interactivas y reutilizables. La he utilizado en proyectos para crear componentes dinámicos y manejar estados de forma eficiente.',
-      image: '/images/reac.jpeg', 
-    },
-    { 
-      name: 'TypeScript', 
-      description: 'Superset de JavaScript que añade tipado estático. Me ha permitido trabajar con mayor seguridad en proyectos React, detectando errores en tiempo de desarrollo.',
-      image: '/images/typescript.webp',
-    },
-    { 
-      name: 'JavaScript', 
-      description: 'Lenguaje base del desarrollo web. Lo he utilizado para manipular el DOM, manejar eventos y construir lógicas básicas en aplicaciones frontend',
-      image: '/images/javascript.png',
-    },
-    { 
-      name: 'C#', 
-      description: 'Lenguaje moderno y versátil de Microsoft. Lo he usado en el desarrollo de aplicaciones de escritorio y en proyectos que requieren integración con bases de datos usando .NET.',
-      image: '/images/csharp.png',
-    },
-    { 
-      name: 'MySQL', 
-      description: 'Sistema de gestión de bases de datos relacional. Lo he utilizado para crear y consultar bases de datos en proyectos académicos y CRUD simples.',
-      image: '/images/mysql.png',
-    },
-    { 
-      name: 'PostgreSQL', 
-      description: 'Base de datos relacional avanzada y robusta. La he usado en proyectos donde se requería integridad de datos y relaciones complejas.',
-      image: '/images/postgres.png',
-    },
-    { 
-      name: 'SQL Server', 
-      description: 'Plataforma de bases de datos de Microsoft. La he empleado para manejar datos, realizar consultas y crear procedimientos almacenados en entornos empresariales',
-      image: '/images/sqlserver.jpg',
-    },
-    { 
-      name: 'Postman', 
-      description: 'Herramienta para probar APIs REST. La he utilizado para enviar peticiones, verificar respuestas y depurar endpoints durante el desarrollo de aplicaciones backend.',
-      image: '/images/postman.jpeg',
-    },
-  ];
 
   return (
-    <Box sx={{ position: 'relative' }}>
-      {/* 🟦 Botones flotantes tipo pestañas */}
-      <Box
-        sx={{
-          position: 'fixed',
-          top: '40%',
-          left: 16,
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 1,
-          zIndex: 999,
-        }}
-      >
-        <Button variant="contained" onClick={() => scrollTo('info')}>Información</Button>
-        <Button variant="contained" onClick={() => scrollTo('tech')}>Tecnologías</Button>
-        <Button variant="contained" onClick={() => scrollTo('tasks')}>Tareas</Button>
-        <Button variant="contained" onClick={() => scrollTo('projects')}>Proyectos</Button>
-      </Box>
-
-      {/* Encabezado / Información */}
+    <Box sx={{ position: "relative" }}>
+      {/* Header */}
       <section id="info">
         <Header />
       </section>
 
+      {/* Tecnologías */}
       <section id="tech">
-        <Container sx={{ py: 8 }}>
-          <Typography variant="h4" gutterBottom sx={{ textAlign: 'center', mb: 4 }}>
-            🛠 TECNOLOGIAS QUE DOMINO
-          </Typography>
+        <Box
+          sx={{
+            py: 8,
+            background: "linear-gradient(#ffffff)",
+            color: "black",
+          }}
+        >
+          <Container>
+            <Typography
+              variant="h4"
+              align="center"
+              sx={{ mb: 6, fontWeight: "bold" }}
+            >
+              🛠 Tecnologías que domino
+            </Typography>
 
-          <Box
-            display="flex"
-            flexWrap="wrap"
-            justifyContent="center"
-            gap={3}
-          >
-            {technologies.map((tech) => (
-              <Box
-                key={tech.name}
-                sx={{
-                  flex: '1 1 calc(25% - 24px)', // 4 tarjetas por fila con gap
-                  minWidth: 250,
-                  maxWidth: 300,
-                }}
-              >
-                <TechCard
-                  name={tech.name}
-                  description={tech.description}
-                  image={tech.image}  // pasamos la imagen aquí
-                />
-              </Box>
-            ))}
-          </Box>
-        </Container>
+            <Slider {...sliderSettings}>
+              {[
+                { name: "React", desc: "UI moderna y dinámica.",img: "/images/reac.jpeg"   },
+                { name: "TypeScript", desc: "Tipado fuerte y seguro.",img: "/images/typescript.webp" },
+                { name: "NestJS", desc: "Backend modular y escalable.", img: "/images/javascript.png" },
+                { name: "PostgreSQL", desc: "Base de datos robusta.", img: "/images/postgres.png" },
+                { name: "MySQL", desc: "Gestión relacional de datos.",img: "/images/mysql.png" },
+                { name: "JavaScript", desc: "Lenguaje base para la web.", img: "/images/javascript.png" },
+                { name: "C#", desc: "Lenguaje versátil para aplicaciones y juegos.", img: "/images/csharp.png" },
+                { name: "Postman", desc: "Herramienta para probar APIs.", img: "/images/postman.jpeg" },
+                { name: "SQL Server", desc: "Base de datos empresarial de Microsoft.", img: "/images/sqlserver.jpg" },
+              ].map((tech) => (
+                <Box key={tech.name} sx={{ px: 2 }}>
+                  <Card
+                    sx={{
+                      textAlign: "center",
+                      borderRadius: 3,
+                      boxShadow: 4,
+                      background: "#fafafa",
+                      color: "#1a237e",
+                      transition: "all 0.3s",
+                      "&:hover": {
+                        transform: "translateY(-5px)",
+                        boxShadow: 6,
+                      },
+                    }}
+                  >
+                    {/* Imagen */}
+<CardMedia
+  component="img"
+  height="120"
+  image={tech.img}
+  alt={tech.name}
+  sx={{ objectFit: "contain", p: 2 }}
+/>
+             
+                    <CardContent>
+                      <Typography variant="h6" fontWeight="bold">
+                        {tech.name}
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        {tech.desc}
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </Box>
+              ))}
+            </Slider>
+          </Container>
+        </Box>
       </section>
 
-      {/* Tareas / Investigaciones */}
+      {/* Tareas */}
       <section id="tasks">
         <Container sx={{ py: 8 }}>
-          <Box display="flex" justifyContent="space-between" alignItems="center">
-            <Typography variant="h4">📚TAREAS REALIZADAS</Typography>
-            <Button variant="contained" onClick={() => navigate('/nueva-tarea')}>
-              Agregar tarea
-            </Button>
-          </Box>
+          <Typography
+            variant="h4"
+            align="center"
+            sx={{ mb: 4, fontWeight: "bold" }}
+          >
+            📚 Tareas realizadas
+          </Typography>
 
-          <Stack spacing={2} mt={2}>
-            {tasks.length === 0 ? (
-              <Typography>No hay tareas guardadas.</Typography>
-            ) : (
-              tasks.map((task) => (
-                <TaskCard key={task.id} task={task} onDelete={deleteTask} />
-              ))
-            )}
-          </Stack>
+          {tasks.length === 0 ? (
+            <Typography align="center" color="text.secondary">
+              Aún no hay tareas registradas.
+            </Typography>
+          ) : (
+            <Box
+              sx={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: 3,
+                justifyContent: "center",
+              }}
+            >
+              {tasks.map((task) => (
+                <Box
+                  key={task.id}
+                  sx={{
+                    flex: "1 1 calc(33% - 24px)",
+                    minWidth: 280,
+                    maxWidth: 350,
+                  }}
+                >
+                  <TaskCard task={task} onDelete={() => {}} />
+                </Box>
+              ))}
+            </Box>
+          )}
         </Container>
       </section>
 
-      {/* Proyectos */}
+      {/* Proyectos personales */}
       <section id="projects">
-        <Container sx={{ py: 8 }}>
-          <Typography variant="h4" gutterBottom>💡 PROYECTOS PERSONALES</Typography>
-          <Typography>Ninguno agregado.</Typography>
-        </Container>
+        <Box sx={{ py: 8, backgroundColor: "#f9f9f9" }}>
+          <Container>
+            <Typography
+              variant="h4"
+              align="center"
+              sx={{ mb: 6, fontWeight: "bold" }}
+            >
+              💡 Proyectos personales
+            </Typography>
+
+            <Box
+              sx={{
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "center",
+                gap: 3,
+              }}
+            >
+              {[
+                {
+                  name: "Portafolio Web",
+                  desc: "Sitio personal construido con React + TS.",
+                },
+                {
+                  name: "Sistema de notas",
+                  desc: "CRUD académico con NestJS y PostgreSQL.",
+                },
+              ].map((project) => (
+                <Box
+                  key={project.name}
+                  sx={{
+                    flex: "1 1 calc(33% - 24px)",
+                    minWidth: 280,
+                    maxWidth: 350,
+                  }}
+                >
+                  <Card
+                    sx={{
+                      borderRadius: 3,
+                      boxShadow: 3,
+                      transition: "all 0.3s",
+                      "&:hover": {
+                        transform: "translateY(-5px)",
+                        boxShadow: 6,
+                      },
+                    }}
+                  >
+                    <CardContent>
+                      <Typography variant="h6" fontWeight="bold">
+                        {project.name}
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        color="text.secondary"
+                        mb={2}
+                      >
+                        {project.desc}
+                      </Typography>
+                      <Button variant="contained" size="small">
+                        Ver proyecto
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </Box>
+              ))}
+            </Box>
+          </Container>
+        </Box>
       </section>
+
+      {/* Botones flotantes con emojis */}
+      <Box
+        sx={{
+          position: "fixed",
+          bottom: 20,
+          right: 20,
+          display: "flex",
+          flexDirection: "column",
+          gap: 2,
+          zIndex: 1000,
+        }}
+      >
+        <Tooltip title="Información">
+          <Fab color="primary" size="small" onClick={() => handleScroll("info")}>
+            <span style={{ fontSize: "18px" }}>ℹ️</span>
+          </Fab>
+        </Tooltip>
+
+        <Tooltip title="Tareas">
+          <Fab
+            color="secondary"
+            size="small"
+            onClick={() => handleScroll("tasks")}
+          >
+            <span style={{ fontSize: "18px" }}>📚</span>
+          </Fab>
+        </Tooltip>
+
+        <Tooltip title="Proyectos">
+          <Fab
+            color="success"
+            size="small"
+            onClick={() => handleScroll("projects")}
+          >
+            <span style={{ fontSize: "18px" }}>💡</span>
+          </Fab>
+        </Tooltip>
+      </Box>
     </Box>
   );
 }
