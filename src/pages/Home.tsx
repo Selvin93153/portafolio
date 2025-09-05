@@ -15,6 +15,7 @@ import { tasks } from "../data/tasks";
 import Slider from "react-slick"; // Carrusel
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Footer from "../components/Footer";
 
 export default function Home() {
   // Función para hacer scroll suave
@@ -103,13 +104,13 @@ export default function Home() {
                     }}
                   >
                     {/* Imagen */}
-<CardMedia
-  component="img"
-  height="120"
-  image={tech.img}
-  alt={tech.name}
-  sx={{ objectFit: "contain", p: 2 }}
-/>
+                  <CardMedia
+                  component="img"
+                   height="120"
+                  image={tech.img}
+                    alt={tech.name}
+                    sx={{ objectFit: "contain", p: 2 }}
+                  />
              
                     <CardContent>
                       <Typography variant="h6" fontWeight="bold">
@@ -277,7 +278,9 @@ export default function Home() {
             <span style={{ fontSize: "18px" }}>💡</span>
           </Fab>
         </Tooltip>
+      
       </Box>
+        <Footer />
     </Box>
   );
 }

@@ -1,5 +1,5 @@
-import { Card, CardContent, CardActions, Button, Typography } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import { Card, CardContent, CardActions, Button, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
   task: { id: string; title: string; summary: string };
@@ -10,15 +10,30 @@ export default function TaskCard({ task }: Props) {
   const navigate = useNavigate();
 
   return (
-    <Card>
+    <Card
+      sx={{
+        borderRadius: 3,
+        boxShadow: 3,
+        transition: "all 0.3s",
+        "&:hover": { transform: "translateY(-5px)", boxShadow: 6 },
+      }}
+    >
       <CardContent>
-        <Typography variant="h6">{task.title}</Typography>
+        <Typography variant="h6" fontWeight="bold">
+          {task.title}
+        </Typography>
         <Typography variant="body2" color="text.secondary">
           {task.summary}
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" onClick={() => navigate(`/tarea/${task.id}`)}>Ver más</Button>
+        <Button
+          size="small"
+          variant="contained"
+          onClick={() => navigate(`/tarea/${task.id}`)}
+        >
+          Ver más
+        </Button>
       </CardActions>
     </Card>
   );
