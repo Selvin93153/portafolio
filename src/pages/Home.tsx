@@ -169,77 +169,87 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* Proyectos personales */}
-      <section id="projects">
-        <Box sx={{ py: 8, backgroundColor: "#f9f9f9" }}>
-          <Container>
-            <Typography
-              variant="h4"
-              align="center"
-              sx={{ mb: 6, fontWeight: "bold" }}
-            >
-              💡 Proyectos personales
-            </Typography>
+   {/* Proyectos personales */}
+<section id="projects">
+  <Box sx={{ py: 8, backgroundColor: "#f9f9f9" }}>
+    <Container>
+      <Typography
+        variant="h4"
+        align="center"
+        sx={{ mb: 6, fontWeight: "bold" }}
+      >
+        💡 Proyectos personales
+      </Typography>
 
-            <Box
+      <Box
+        sx={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          gap: 3,
+        }}
+      >
+        {[
+          {
+            name: "PROYECTO DE CONSUMO DE API EXTERNA",
+            desc: "Se consume una API gratuita de diferentes bebidas",
+            link: "https://api-linea-one.vercel.app/",
+          },
+          {
+            name: "Sistema para clinica Medica",
+            desc: "Se desarrolla sistema  con NestJS, React, Docker y PostgreSQL.",
+            link: "https://frontedcli.onrender.com/",
+          },
+        ].map((project) => (
+          <Box
+            key={project.name}
+            sx={{
+              flex: "1 1 calc(33% - 24px)",
+              minWidth: 280,
+              maxWidth: 350,
+            }}
+          >
+            <Card
               sx={{
-                display: "flex",
-                flexWrap: "wrap",
-                justifyContent: "center",
-                gap: 3,
+                borderRadius: 3,
+                boxShadow: 3,
+                transition: "all 0.3s",
+                "&:hover": {
+                  transform: "translateY(-5px)",
+                  boxShadow: 6,
+                },
               }}
             >
-              {[
-                {
-                  name: "Portafolio Web",
-                  desc: "Sitio personal construido con React + TS.",
-                },
-                {
-                  name: "Sistema de notas",
-                  desc: "CRUD académico con NestJS y PostgreSQL.",
-                },
-              ].map((project) => (
-                <Box
-                  key={project.name}
-                  sx={{
-                    flex: "1 1 calc(33% - 24px)",
-                    minWidth: 280,
-                    maxWidth: 350,
-                  }}
+              <CardContent>
+                <Typography variant="h6" fontWeight="bold">
+                  {project.name}
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  mb={2}
                 >
-                  <Card
-                    sx={{
-                      borderRadius: 3,
-                      boxShadow: 3,
-                      transition: "all 0.3s",
-                      "&:hover": {
-                        transform: "translateY(-5px)",
-                        boxShadow: 6,
-                      },
-                    }}
-                  >
-                    <CardContent>
-                      <Typography variant="h6" fontWeight="bold">
-                        {project.name}
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        color="text.secondary"
-                        mb={2}
-                      >
-                        {project.desc}
-                      </Typography>
-                      <Button variant="contained" size="small">
-                        Ver proyecto
-                      </Button>
-                    </CardContent>
-                  </Card>
-                </Box>
-              ))}
-            </Box>
-          </Container>
-        </Box>
-      </section>
+                  {project.desc}
+                </Typography>
+                <Button
+                  variant="contained"
+                  size="small"
+                  component="a"
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Ver proyecto
+                </Button>
+              </CardContent>
+            </Card>
+          </Box>
+        ))}
+      </Box>
+    </Container>
+  </Box>
+</section>
+
 
       {/* Botones flotantes con emojis */}
       <Box

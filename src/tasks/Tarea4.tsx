@@ -1,15 +1,10 @@
-// src/tasks/Tarea4.tsx
-import {
-  Box,
-  Container,
-  Typography,
-  Button,
-  Card,
-  CardContent,
-  Divider,
-  List,
-  ListItem,
-  ListItemText,
+// src/tasks/Tarea3.tsx
+import { 
+  Box, 
+  Container, 
+  Typography, 
+  Divider, 
+  Button 
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
@@ -17,179 +12,236 @@ export default function Tarea4() {
   const navigate = useNavigate();
 
   return (
-    <Box sx={{ bgcolor: "#f4f6f8", py: 6 }}>
+    <Box sx={{ bgcolor: "#fafafa", py: 6 }}>
       <Container maxWidth="md">
         {/* Título principal */}
-        <Typography
-          variant="h3"
-          fontWeight="bold"
-          align="center"
-          gutterBottom
-        >
-          📑 TIPOS DE PRUEBA – INTRODUCCIÓN
+        <Typography variant="h3" fontWeight="bold" gutterBottom align="center">
+          Guía práctica para mitigar las 10 principales vulnerabilidades del OWASP (2021)
         </Typography>
 
-        <Typography variant="body1" paragraph>
-          El objetivo de este estudio es explorar y documentar herramientas esenciales
-          que se utilizan ampliamente en el ámbito del aseguramiento de la calidad
-          del software, específicamente en pruebas funcionales, de rendimiento y de
-          seguridad. Esto permitirá comprender cómo estas herramientas contribuyen
-          a mejorar la calidad general del producto.
+        <Typography variant="subtitle1" gutterBottom align="center">
+          Esta guía está diseñada para ayudar a personas sin conocimientos técnicos
+          a entender y prevenir los problemas de seguridad más comunes en aplicaciones web.
         </Typography>
-        <Typography variant="body1" paragraph>
-          Las pruebas de software son fundamentales para garantizar que los sistemas
-          cumplan con los requisitos definidos, respondan adecuadamente bajo diversas
-          condiciones de uso, y estén protegidos frente a posibles amenazas. A través
-          de pruebas estructuradas, se promueve la confiabilidad, la eficiencia
-          operativa y la confianza del usuario final, elementos clave en el desarrollo
-          de aplicaciones robustas y seguras.
-        </Typography>
-
-        <List>
-          <ListItem>
-            <ListItemText primary="Pruebas funcionales" secondary="Confirman que cada funcionalidad cumple con las especificaciones definidas." />
-          </ListItem>
-          <ListItem>
-            <ListItemText primary="Pruebas de rendimiento" secondary="Evalúan la capacidad del software frente a cargas de trabajo reales o extremas." />
-          </ListItem>
-          <ListItem>
-            <ListItemText primary="Pruebas de seguridad" secondary="Identifican vulnerabilidades y evalúan la resistencia del sistema frente a ataques." />
-          </ListItem>
-        </List>
 
         <Divider sx={{ my: 4 }} />
 
-        {/* Sección A */}
-        <Typography variant="h4" fontWeight="bold" gutterBottom>
-          A) Pruebas Funcionales
-        </Typography>
-        <Typography variant="body1" paragraph>
-          Consisten en verificar que el comportamiento del software corresponda
-          exactamente con los requisitos establecidos, ya sean funcionales o de negocio,
-          sin considerar cómo está implementado internamente.
-        </Typography>
-
-        <Card sx={{ mb: 3 }}>
-          <CardContent>
-            <Typography variant="h6" gutterBottom>
-              Herramientas
+        {/* Vulnerabilidades */}
+        {[
+          {
+            num: "1",
+            title: "Control de Acceso Roto (Broken Access Control)",
+            desc: "Cuando los usuarios pueden acceder a partes del sistema que no deberían.",
+            prev: [
+              "Solo permitir el acceso a lo que el usuario necesita.",
+              "Usar roles (administrador, usuario normal).",
+              "Nunca confiar en lo que el navegador envía (botones ocultos, enlaces).",
+            ],
+          },
+          {
+            num: "2",
+            title: "Fallas Criptográficas (Cryptographic Failures)",
+            desc: "Los datos importantes (como contraseñas) no están protegidos correctamente.",
+            prev: [
+              "Usar siempre HTTPS.",
+              "Guardar contraseñas cifradas, no en texto plano.",
+              "Usar sistemas de seguridad probados, no inventados.",
+            ],
+          },
+          {
+            num: "3",
+            title: "Inyección (Injection)",
+            desc: "Cuando se insertan comandos maliciosos en formularios o URLs.",
+            prev: [
+              "Validar y limpiar los datos recibidos.",
+              "Nunca confiar en lo que los usuarios escriben.",
+              "Usar herramientas que detecten ataques de inyección.",
+            ],
+          },
+          {
+            num: "4",
+            title: "Diseño Inseguro (Insecure Design)",
+            desc: "El sistema fue mal planeado desde el inicio sin considerar la seguridad.",
+            prev: [
+              "Planear la seguridad desde el diseño.",
+              "Revisar la seguridad durante el desarrollo.",
+              "Usar metodologías que incluyan controles de seguridad.",
+            ],
+          },
+          {
+            num: "5",
+            title: "Configuración Incorrecta de Seguridad",
+            desc: "El sistema está mal configurado, dejando puertas abiertas.",
+            prev: [
+              "Eliminar funciones innecesarias.",
+              "Mantener software actualizado.",
+              "Usar configuraciones recomendadas.",
+            ],
+          },
+          {
+            num: "6",
+            title: "Componentes Vulnerables y Desactualizados",
+            desc: "Uso de librerías o programas antiguos con errores conocidos.",
+            prev: [
+              "Actualizar librerías y componentes con frecuencia.",
+              "Evitar software sin soporte.",
+            ],
+          },
+          {
+            num: "7",
+            title: "Fallos de Identificación y Autenticación",
+            desc: "El sistema permite suplantar usuarios.",
+            prev: [
+              "Usar contraseñas seguras.",
+              "Habilitar verificación en dos pasos.",
+              "Bloquear tras varios intentos fallidos.",
+            ],
+          },
+          {
+            num: "8",
+            title: "Fallos en la Integridad de Software y Datos",
+            desc: "Software o datos pueden modificarse sin permiso.",
+            prev: [
+              "Verificar origen de actualizaciones.",
+              "Usar firmas digitales.",
+              "Restringir modificaciones a usuarios autorizados.",
+            ],
+          },
+          {
+            num: "9",
+            title: "Fallos en el Registro y Monitoreo",
+            desc: "Los ataques no se registran ni se detectan.",
+            prev: [
+              "Registrar eventos clave (inicios de sesión, errores).",
+              "Revisar registros periódicamente.",
+              "Configurar alertas automáticas.",
+            ],
+          },
+          {
+            num: "10",
+            title: "Falsificación de Peticiones del Lado del Servidor (SSRF)",
+            desc: "El atacante hace que el sistema acceda a direcciones internas.",
+            prev: [
+              "Validar enlaces y direcciones.",
+              "Restringir direcciones internas.",
+              "Evitar que usuarios controlen peticiones directas.",
+            ],
+          },
+        ].map((item) => (
+          <Box key={item.num} sx={{ mb: 4 }}>
+            <Typography variant="h5" fontWeight="bold" gutterBottom>
+              {item.num}. {item.title}
+            </Typography>
+            <Typography variant="body1" paragraph>
+              <strong>¿Qué es?</strong> {item.desc}
+            </Typography>
+            <Typography variant="body1" gutterBottom>
+              <strong>¿Cómo prevenirlo?</strong>
             </Typography>
             <ul>
-              <li><b>Testim</b> (plataforma basada en IA): creación de pruebas sin código con auto-corrección.</li>
-              <li><b>BrowserStack</b>: pruebas manuales y automatizadas en navegadores y dispositivos reales.</li>
-              <li><b>Cypress</b>: pruebas end-to-end rápidas, interactivas y confiables.</li>
+              {item.prev.map((p, idx) => (
+                <li key={idx}>
+                  <Typography variant="body2">{p}</Typography>
+                </li>
+              ))}
             </ul>
-          </CardContent>
-        </Card>
+          </Box>
+        ))}
 
-        <Typography variant="h6" gutterBottom>
-          Ventajas y desventajas
+        <Divider sx={{ my: 4 }} />
+
+        {/* Glosario */}
+        <Typography variant="h4" fontWeight="bold" gutterBottom>
+          Glosario
         </Typography>
         <ul>
-          <li><b>Testim</b>: + Creación rápida, accesible; – Costo, menos flexible que código puro.</li>
-          <li><b>BrowserStack</b>: + Cobertura amplia; – Costos en la nube, latencia posible.</li>
-          <li><b>Cypress</b>: + Moderno y veloz; – Limitado en navegadores antiguos.</li>
-        </ul>
-
-        <Typography variant="h6" gutterBottom>
-          Aplicaciones prácticas
-        </Typography>
-        <ul>
-          <li>Comprobación de flujos (login, compras, formularios).</li>
-          <li>Pruebas regresivas tras actualizaciones.</li>
-          <li>Aseguramiento de compatibilidad UI en web y móviles.</li>
+          {[
+            "Actualización: Nueva versión de un programa que soluciona errores y mejora la seguridad.",
+            "Cifrado: Técnica para proteger datos haciéndolos ilegibles sin clave correcta.",
+            "HTTPS: Protocolo seguro para proteger la información en internet.",
+            "Librerías: Conjunto de funciones listas para reutilizar en programas.",
+            "Roles de usuario: Permisos asignados (ej: administrador, invitado).",
+            "SSRF: Ataque que manipula al sistema para conectarse a sitios internos.",
+            "Validar datos: Revisar que la información ingresada sea correcta y segura.",
+            "Verificación en dos pasos: Pedir dos identificaciones (ej: contraseña + código SMS).",
+          ].map((g, i) => (
+            <li key={i}>
+              <Typography variant="body2">{g}</Typography>
+            </li>
+          ))}
         </ul>
 
         <Divider sx={{ my: 4 }} />
 
-        {/* Sección B */}
+        {/* Planes de prueba */}
         <Typography variant="h4" fontWeight="bold" gutterBottom>
-          B) Pruebas de Rendimiento
+          Segunda Parte: Planes de prueba y casos de prueba
+        </Typography>
+
+        <Typography variant="body1" paragraph>
+          <strong>¿Qué son los Planes de Prueba?</strong> Documento que describe cómo
+          se revisará que un sistema funcione correctamente.
         </Typography>
         <Typography variant="body1" paragraph>
-          Evalúan cómo se comporta el sistema bajo diferentes niveles de carga para
-          garantizar estabilidad, tiempo de respuesta y escalabilidad.
+          <strong>¿Qué son los Casos de Prueba?</strong> Situaciones específicas que
+          verifican funciones del sistema. Incluyen pasos y resultados esperados.
         </Typography>
 
-        <Card sx={{ mb: 3 }}>
-          <CardContent>
-            <Typography variant="h6">Herramientas</Typography>
-            <ul>
-              <li><b>Apache JMeter</b>: open-source para servicios web, APIs y BD.</li>
-              <li><b>BlazeMeter</b>: en la nube, simula miles/millones de usuarios, compatible con JMeter y más.</li>
-            </ul>
-          </CardContent>
-        </Card>
+        <Typography variant="h6" fontWeight="bold" gutterBottom>
+          Ejemplo de Plan de Pruebas
+        </Typography>
+        <Typography variant="body2" paragraph>
+          <strong>Nombre del módulo:</strong> Catálogo de productos <br />
+          <strong>Objetivo:</strong> Validar creación, edición, eliminación y visualización
+          de productos. <br />
+          <strong>Versión:</strong> 1.0 <br />
+          <strong>Responsable:</strong> Equipo de pruebas <br />
+          <strong>Fecha:</strong> 5 de agosto de 2025 <br />
+          <strong>Herramientas:</strong> Navegador web, sistema en ambiente de prueba
+        </Typography>
 
-        <Typography variant="h6">Aplicaciones prácticas</Typography>
+        <Typography variant="body2" gutterBottom>
+          <strong>Funciones a probar:</strong>
+        </Typography>
         <ul>
-          <li>Medición bajo cargas normales y extremas.</li>
-          <li>Pruebas sostenidas antes de despliegues.</li>
-          <li>Detección de cuellos de botella.</li>
+          <li>Crear producto</li>
+          <li>Editar producto</li>
+          <li>Eliminar producto</li>
+          <li>Visualizar productos</li>
         </ul>
+            <Typography variant="h4" fontWeight="bold" gutterBottom>
+          CASOS DE PRUEBA
+        </Typography>
+         <Box sx={{ textAlign: "center", my: 4 }}>
+          <img
+            src="/images/cuadro_owasp.png"
+            alt="Mapa conceptual de Aserciones en Chai"
+            style={{
+              maxWidth: "100%",
+              borderRadius: "12px",
+              boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
+            }}
+          />
+        </Box>
 
         <Divider sx={{ my: 4 }} />
 
-        {/* Sección C */}
+        {/* Glosario extra */}
         <Typography variant="h4" fontWeight="bold" gutterBottom>
-          C) Pruebas de Seguridad
-        </Typography>
-        <Typography variant="body1" paragraph>
-          Identifican vulnerabilidades en el software, como inyección SQL, XSS o
-          autenticación débil.
-        </Typography>
-
-        <Card sx={{ mb: 3 }}>
-          <CardContent>
-            <Typography variant="h6">Herramientas</Typography>
-            <ul>
-              <li><b>OWASP ZAP</b>: escáner de seguridad automatizado.</li>
-              <li><b>Burp Suite CE</b>: entorno interactivo para pruebas manuales.</li>
-              <li><b>Testsigma</b>: pruebas funcionales de seguridad (autenticación, cifrado).</li>
-            </ul>
-          </CardContent>
-        </Card>
-
-        <Typography variant="h6">Aplicaciones prácticas</Typography>
-        <ul>
-          <li>Escaneo previo a despliegues.</li>
-          <li>Pentesting manual en fases críticas.</li>
-          <li>Validación de autenticación y cifrado.</li>
-        </ul>
-
-        <Divider sx={{ my: 4 }} />
-
-        {/* Conclusión */}
-        <Typography variant="h4" fontWeight="bold" gutterBottom>
-          Conclusión
-        </Typography>
-        <Typography variant="body1" paragraph>
-          Cada tipo de prueba aborda necesidades distintas: las funcionales validan que el
-          sistema cumpla sus objetivos, las de rendimiento aseguran estabilidad bajo
-          demanda, y las de seguridad protegen frente a amenazas. Elegir las herramientas
-          adecuadas garantiza calidad y éxito del software.
-        </Typography>
-
-        {/* Recomendaciones */}
-        <Typography variant="h4" fontWeight="bold" gutterBottom>
-          Recomendaciones
+          Glosario (Planes de prueba)
         </Typography>
         <ul>
-          <li><b>Funcionales</b>: Testim para agilidad sin código, Cypress o Selenium para mayor personalización.</li>
-          <li><b>Rendimiento</b>: JMeter para evaluaciones generales, k6 o Gatling en CI/CD.</li>
-          <li><b>Seguridad</b>: OWASP ZAP como defensa inicial, Burp Suite para análisis profundo.</li>
-        </ul>
-
-        {/* Bibliografía */}
-        <Typography variant="h4" fontWeight="bold" gutterBottom sx={{ mt: 4 }}>
-          Bibliografía
-        </Typography>
-        <ul>
-          <li>Apache Software Foundation. (2025). Apache JMeter. https://jmeter.apache.org/</li>
-          <li>Atlassian. (2025). Guía de pruebas funcionales. https://www.atlassian.com/es/continuous-delivery/software-testing/types-of-software-testing#functional-testing</li>
-          <li>BrowserStack. (2025). Functional Testing. https://www.browserstack.com/guide/functional-testing</li>
-          <li>BrowserStack. (2025). Performance Testing Tools. https://www.browserstack.com/guide/performance-testing-tools</li>
-          <li>Cypress Technologies. (2025). Cypress Docs. https://docs.cypress.io/</li>
+          {[
+            "Ambiente de prueba: Sistema para pruebas sin afectar datos reales.",
+            "Aprobado: La prueba fue exitosa.",
+            "Catálogo: Lista de productos u objetos dentro del sistema.",
+            "Formulario: Pantalla para ingresar datos.",
+            "Validar: Revisar que algo funcione correctamente.",
+          ].map((g, i) => (
+            <li key={i}>
+              <Typography variant="body2">{g}</Typography>
+            </li>
+          ))}
         </ul>
 
         {/* Botón volver */}

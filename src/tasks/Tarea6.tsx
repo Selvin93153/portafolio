@@ -1,8 +1,8 @@
-// src/tasks/Tarea2.tsx
+// src/tasks/Tarea5.tsx
 import { Box, Container, Typography, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-export default function Tarea2() {
+export default function Tarea6() {
   const navigate = useNavigate();
 
   return (
@@ -10,17 +10,17 @@ export default function Tarea2() {
       <Container maxWidth="md">
         {/* Título */}
         <Typography variant="h3" fontWeight="bold" align="center" gutterBottom>
-          🎥 Tarea 2 – Video explicativo
+          🎥 Tarea 6 – Video de Presentacion
         </Typography>
 
         <Typography variant="body1" paragraph align="center">
-          A continuación se explica las pruebas unitarias implementadas en funciones de una calculadora
+          A continuacion se presenta video explicando pruebas unitarias en Jest con cobertura del 100% de las funciones creadas..
         </Typography>
 
         {/* Video embebido */}
         <Box sx={{ display: "flex", justifyContent: "center", my: 4 }}>
           <iframe
-            src="https://drive.google.com/file/d/1XNEjsxDuvr7E0pUg6QhtdJu-jnVPUAD8/preview"
+            src="https://drive.google.com/file/d/10vvUo3KICpaXD9mlTNOn38ksxHuZSyE_/preview"
             width="100%"
             height="480"
             allow="autoplay"
@@ -33,7 +33,7 @@ export default function Tarea2() {
           <Button
             variant="contained"
             color="secondary"
-            href="https://drive.google.com/file/d/1XNEjsxDuvr7E0pUg6QhtdJu-jnVPUAD8/view?usp=sharing"
+            href="https://drive.google.com/file/d/10vvUo3KICpaXD9mlTNOn38ksxHuZSyE_/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
           >

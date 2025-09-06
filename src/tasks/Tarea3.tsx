@@ -1,251 +1,165 @@
-// src/tasks/Tarea3.tsx
-import { 
-  Box, 
-  Container, 
-  Typography, 
-  Divider, 
-  Button 
-} from "@mui/material";
+import { Box, Container, Typography, Card, CardContent, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 export default function Tarea3() {
   const navigate = useNavigate();
 
   return (
-    <Box sx={{ bgcolor: "#fafafa", py: 6 }}>
+    <Box sx={{ bgcolor: "#f4f6f8", py: 6, minHeight: "100vh" }}>
       <Container maxWidth="md">
         {/* Título principal */}
-        <Typography variant="h3" fontWeight="bold" gutterBottom align="center">
-          Guía práctica para mitigar las 10 principales vulnerabilidades del OWASP (2021)
+        <Typography
+          variant="h3"
+          fontWeight="bold"
+          gutterBottom
+          align="center"
+          sx={{ color: "#1976d2" }}
+        >
+          📊 NORMA ISO/IEC 25010 y Estándares de QA
         </Typography>
 
-        <Typography variant="subtitle1" gutterBottom align="center">
-          Esta guía está diseñada para ayudar a personas sin conocimientos técnicos
-          a entender y prevenir los problemas de seguridad más comunes en aplicaciones web.
-        </Typography>
-
-        <Divider sx={{ my: 4 }} />
-
-        {/* Vulnerabilidades */}
-        {[
-          {
-            num: "1",
-            title: "Control de Acceso Roto (Broken Access Control)",
-            desc: "Cuando los usuarios pueden acceder a partes del sistema que no deberían.",
-            prev: [
-              "Solo permitir el acceso a lo que el usuario necesita.",
-              "Usar roles (administrador, usuario normal).",
-              "Nunca confiar en lo que el navegador envía (botones ocultos, enlaces).",
-            ],
-          },
-          {
-            num: "2",
-            title: "Fallas Criptográficas (Cryptographic Failures)",
-            desc: "Los datos importantes (como contraseñas) no están protegidos correctamente.",
-            prev: [
-              "Usar siempre HTTPS.",
-              "Guardar contraseñas cifradas, no en texto plano.",
-              "Usar sistemas de seguridad probados, no inventados.",
-            ],
-          },
-          {
-            num: "3",
-            title: "Inyección (Injection)",
-            desc: "Cuando se insertan comandos maliciosos en formularios o URLs.",
-            prev: [
-              "Validar y limpiar los datos recibidos.",
-              "Nunca confiar en lo que los usuarios escriben.",
-              "Usar herramientas que detecten ataques de inyección.",
-            ],
-          },
-          {
-            num: "4",
-            title: "Diseño Inseguro (Insecure Design)",
-            desc: "El sistema fue mal planeado desde el inicio sin considerar la seguridad.",
-            prev: [
-              "Planear la seguridad desde el diseño.",
-              "Revisar la seguridad durante el desarrollo.",
-              "Usar metodologías que incluyan controles de seguridad.",
-            ],
-          },
-          {
-            num: "5",
-            title: "Configuración Incorrecta de Seguridad",
-            desc: "El sistema está mal configurado, dejando puertas abiertas.",
-            prev: [
-              "Eliminar funciones innecesarias.",
-              "Mantener software actualizado.",
-              "Usar configuraciones recomendadas.",
-            ],
-          },
-          {
-            num: "6",
-            title: "Componentes Vulnerables y Desactualizados",
-            desc: "Uso de librerías o programas antiguos con errores conocidos.",
-            prev: [
-              "Actualizar librerías y componentes con frecuencia.",
-              "Evitar software sin soporte.",
-            ],
-          },
-          {
-            num: "7",
-            title: "Fallos de Identificación y Autenticación",
-            desc: "El sistema permite suplantar usuarios.",
-            prev: [
-              "Usar contraseñas seguras.",
-              "Habilitar verificación en dos pasos.",
-              "Bloquear tras varios intentos fallidos.",
-            ],
-          },
-          {
-            num: "8",
-            title: "Fallos en la Integridad de Software y Datos",
-            desc: "Software o datos pueden modificarse sin permiso.",
-            prev: [
-              "Verificar origen de actualizaciones.",
-              "Usar firmas digitales.",
-              "Restringir modificaciones a usuarios autorizados.",
-            ],
-          },
-          {
-            num: "9",
-            title: "Fallos en el Registro y Monitoreo",
-            desc: "Los ataques no se registran ni se detectan.",
-            prev: [
-              "Registrar eventos clave (inicios de sesión, errores).",
-              "Revisar registros periódicamente.",
-              "Configurar alertas automáticas.",
-            ],
-          },
-          {
-            num: "10",
-            title: "Falsificación de Peticiones del Lado del Servidor (SSRF)",
-            desc: "El atacante hace que el sistema acceda a direcciones internas.",
-            prev: [
-              "Validar enlaces y direcciones.",
-              "Restringir direcciones internas.",
-              "Evitar que usuarios controlen peticiones directas.",
-            ],
-          },
-        ].map((item) => (
-          <Box key={item.num} sx={{ mb: 4 }}>
-            <Typography variant="h5" fontWeight="bold" gutterBottom>
-              {item.num}. {item.title}
+        {/* Contenido completo */}
+        <Card sx={{ mb: 4, borderRadius: 3, boxShadow: 3 }}>
+          <CardContent>
+            <Typography variant="body1" paragraph>
+              La norma <strong>ISO/IEC 25010</strong> es la última versión del estándar internacional para la calidad de productos de software. Define un modelo de calidad compuesto por ocho características: idoneidad funcional, eficiencia de rendimiento, compatibilidad, usabilidad, fiabilidad, seguridad, mantenibilidad y portabilidad. Cada característica se subdivide en subcaracterísticas que describen aspectos específicos de la calidad. Por ejemplo, la usabilidad incluye subcaracterísticas como la facilidad de aprendizaje, la operatividad, la protección contra errores del usuario, la estética de la interfaz de usuario y la accesibilidad.
             </Typography>
             <Typography variant="body1" paragraph>
-              <strong>¿Qué es?</strong> {item.desc}
+              La norma también define un modelo de calidad en uso compuesto por cinco características: eficacia, eficiencia, satisfacción, ausencia de riesgos y cobertura del contexto. Estas características reflejan el grado en que el producto de software satisface los objetivos y necesidades del usuario en un contexto de uso específico.
             </Typography>
-            <Typography variant="body1" gutterBottom>
-              <strong>¿Cómo prevenirlo?</strong>
+          </CardContent>
+        </Card>
+
+        <Card sx={{ mb: 4, borderRadius: 3, boxShadow: 3 }}>
+          <CardContent>
+            <Typography variant="h6" fontWeight="bold" gutterBottom>
+              Beneficios de utilizar la norma ISO/IEC 25010
             </Typography>
-            <ul>
-              {item.prev.map((p, idx) => (
-                <li key={idx}>
-                  <Typography variant="body2">{p}</Typography>
-                </li>
-              ))}
+            <Typography variant="body1" paragraph>
+              El uso de la norma ISO/IEC 25010 para el modelado de calidad puede ofrecer diversas ventajas a sus proyectos de software, como establecer un lenguaje y una comprensión comunes de la calidad entre las partes interesadas, obtener y validar requisitos de calidad, seleccionar métricas y métodos de calidad aplicables, comparar la calidad de diferentes productos o alternativas de software, y supervisar y mejorar la calidad del sistema a lo largo de su ciclo de vida. Este marco puede ayudar a garantizar que los requisitos de calidad estén alineados con los objetivos de negocio y las necesidades de los usuarios, además de demostrar el valor y el impacto de las iniciativas de calidad.
+            </Typography>
+          </CardContent>
+        </Card>
+
+        <Card sx={{ mb: 4, borderRadius: 3, boxShadow: 3 }}>
+          <CardContent>
+            <Typography variant="h6" fontWeight="bold" gutterBottom>
+              Desafíos del uso de la norma ISO/IEC 25010
+            </Typography>
+            <Typography variant="body1" paragraph>
+              Aplicar la norma de forma personalizada y adaptada al alcance, tamaño, complejidad, dominio, tecnología, metodología y cultura de su proyecto puede resultar difícil y requerir mucho tiempo. Además, puede resultar complicado medir y cuantificar algunas de las características y subcaracterísticas de calidad. Para equilibrar y priorizar las compensaciones y dependencias entre las diferentes características de calidad, puede ser necesario un análisis de decisiones multicriterio o una técnica de puntuación ponderada. Por último, implementar y mantener un modelo de calidad integral y consistente para su sistema requiere importantes recursos e inversiones en formación, herramientas, procesos, documentación y gobernanza.
+            </Typography>
+          </CardContent>
+        </Card>
+
+        <Card sx={{ mb: 4, borderRadius: 3, boxShadow: 3 }}>
+          <CardContent>
+            <Typography variant="h6" fontWeight="bold" gutterBottom>
+              Consejos para utilizar la norma ISO/IEC 25010
+            </Typography>
+            <Typography variant="body1" paragraph>
+              Partir de una visión y un propósito claros para su modelo de calidad. Defina el significado de la calidad para su sistema y las partes interesadas, y cuáles son los resultados y beneficios esperados de sus esfuerzos de calidad. Utilice un enfoque orientado a las partes interesadas y centrado en el usuario. Use una estructura modular y jerárquica para organizar su modelo de calidad en capas o niveles de abstracción. Aplique la norma ISO/IEC 25010 de forma flexible y refine su modelo a medida que evoluciona.
+            </Typography>
+          </CardContent>
+        </Card>
+
+        <Card sx={{ mb: 4, borderRadius: 3, boxShadow: 3 }}>
+          <CardContent>
+            <Typography variant="h6" fontWeight="bold" gutterBottom>
+              ISO/IEC/IEEE 29119: Estándares de pruebas de software
+            </Typography>
+            <Typography variant="body1" paragraph>
+              Define un conjunto de estándares internacionalmente acordados para pruebas de software, cubriendo procesos, documentación, técnicas y gestión de pruebas. Es aplicable a desarrolladores, ingenieros de prueba, profesionales de QA, gestores de proyectos y cualquier grupo involucrado en el ciclo de vida del software.
+            </Typography>
+            <Typography variant="body1" paragraph>
+              Partes del estándar:
+            </Typography>
+            <ul style={{ marginLeft: "20px" }}>
+              <li>ISO/IEC 29119-1: Definiciones y conceptos.</li>
+              <li>ISO/IEC 29119-2: Procesos organizacionales de prueba.</li>
+              <li>ISO/IEC 29119-3: Documentación de prueba.</li>
+              <li>ISO/IEC 29119-4: Técnicas de prueba (caja negra, blanca, basada en experiencia).</li>
+              <li>ISO/IEC 29119-5: Procesos de pruebas basadas en riesgo.</li>
             </ul>
-          </Box>
-        ))}
+          </CardContent>
+        </Card>
 
-        <Divider sx={{ my: 4 }} />
+        <Card sx={{ mb: 4, borderRadius: 3, boxShadow: 3 }}>
+          <CardContent>
+            <Typography variant="h6" fontWeight="bold" gutterBottom>
+              IEEE 730: Estándar de planes de aseguramiento de calidad
+            </Typography>
+            <Typography variant="body1" paragraph>
+              Define el proceso de aseguramiento de calidad del software mediante planes de aseguramiento de calidad (SQAP). Incluye definición de requisitos, planes de prueba, metodologías de revisión, gestión de riesgos y ciclo de vida del software.
+            </Typography>
+          </CardContent>
+        </Card>
 
-        {/* Glosario */}
-        <Typography variant="h4" fontWeight="bold" gutterBottom>
-          Glosario
-        </Typography>
-        <ul>
-          {[
-            "Actualización: Nueva versión de un programa que soluciona errores y mejora la seguridad.",
-            "Cifrado: Técnica para proteger datos haciéndolos ilegibles sin clave correcta.",
-            "HTTPS: Protocolo seguro para proteger la información en internet.",
-            "Librerías: Conjunto de funciones listas para reutilizar en programas.",
-            "Roles de usuario: Permisos asignados (ej: administrador, invitado).",
-            "SSRF: Ataque que manipula al sistema para conectarse a sitios internos.",
-            "Validar datos: Revisar que la información ingresada sea correcta y segura.",
-            "Verificación en dos pasos: Pedir dos identificaciones (ej: contraseña + código SMS).",
-          ].map((g, i) => (
-            <li key={i}>
-              <Typography variant="body2">{g}</Typography>
-            </li>
-          ))}
-        </ul>
 
-        <Divider sx={{ my: 4 }} />
-
-        {/* Planes de prueba */}
-        <Typography variant="h4" fontWeight="bold" gutterBottom>
-          Segunda Parte: Planes de prueba y casos de prueba
-        </Typography>
-
-        <Typography variant="body1" paragraph>
-          <strong>¿Qué son los Planes de Prueba?</strong> Documento que describe cómo
-          se revisará que un sistema funcione correctamente.
-        </Typography>
-        <Typography variant="body1" paragraph>
-          <strong>¿Qué son los Casos de Prueba?</strong> Situaciones específicas que
-          verifican funciones del sistema. Incluyen pasos y resultados esperados.
-        </Typography>
-
-        <Typography variant="h6" fontWeight="bold" gutterBottom>
-          Ejemplo de Plan de Pruebas
-        </Typography>
-        <Typography variant="body2" paragraph>
-          <strong>Nombre del módulo:</strong> Catálogo de productos <br />
-          <strong>Objetivo:</strong> Validar creación, edición, eliminación y visualización
-          de productos. <br />
-          <strong>Versión:</strong> 1.0 <br />
-          <strong>Responsable:</strong> Equipo de pruebas <br />
-          <strong>Fecha:</strong> 5 de agosto de 2025 <br />
-          <strong>Herramientas:</strong> Navegador web, sistema en ambiente de prueba
-        </Typography>
-
-        <Typography variant="body2" gutterBottom>
-          <strong>Funciones a probar:</strong>
-        </Typography>
-        <ul>
-          <li>Crear producto</li>
-          <li>Editar producto</li>
-          <li>Eliminar producto</li>
-          <li>Visualizar productos</li>
-        </ul>
-            <Typography variant="h4" fontWeight="bold" gutterBottom>
-          CASOS DE PRUEBA
-        </Typography>
-         <Box sx={{ textAlign: "center", my: 4 }}>
+        {/* Imagen del mapa conceptual */}
+        <Box sx={{ textAlign: "center", my: 4 }}>
+            
+            CUADRO COMPARATIVO DE MODELOS DE CALIDAD DE SOFTWARE
+          
           <img
-            src="/images/cuadro_owasp.png"
-            alt="Mapa conceptual de Aserciones en Chai"
+            src="/images/cuadro_comparativo.png"
+            alt="CUADRO COMPARATIVO DE MODELOS DE CALIDAD DE SOFTWARE"
             style={{
               maxWidth: "100%",
               borderRadius: "12px",
               boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
             }}
           />
+          
         </Box>
 
-        <Divider sx={{ my: 4 }} />
 
-        {/* Glosario extra */}
-        <Typography variant="h4" fontWeight="bold" gutterBottom>
-          Glosario (Planes de prueba)
-        </Typography>
-        <ul>
-          {[
-            "Ambiente de prueba: Sistema para pruebas sin afectar datos reales.",
-            "Aprobado: La prueba fue exitosa.",
-            "Catálogo: Lista de productos u objetos dentro del sistema.",
-            "Formulario: Pantalla para ingresar datos.",
-            "Validar: Revisar que algo funcione correctamente.",
-          ].map((g, i) => (
-            <li key={i}>
-              <Typography variant="body2">{g}</Typography>
-            </li>
-          ))}
-        </ul>
+        <Card sx={{ mb: 4, borderRadius: 3, boxShadow: 3 }}>
+          <CardContent>
+            <Typography variant="h6" fontWeight="bold" gutterBottom>
+              Roles en el aseguramiento de calidad
+            </Typography>
+            <ul style={{ marginLeft: "20px" }}>
+              <li><strong>Tester:</strong> Ejecuta pruebas manuales o automáticas, reporta bugs, colabora con desarrollo.</li>
+              <li><strong>Ingeniero de QA:</strong> Diseña procesos y estrategias de calidad, trabaja con desarrollo y gerentes.</li>
+              <li><strong>Líder de QA:</strong> Coordina equipo, define qué y cómo probar, supervisa el aseguramiento desde inicio hasta entrega final.</li>
+            </ul>
+          </CardContent>
+        </Card>
 
-        {/* Botón volver */}
-        <Box sx={{ textAlign: "center", mt: 6 }}>
+        <Card sx={{ mb: 4, borderRadius: 3, boxShadow: 3, backgroundColor: "#e3f2fd" }}>
+          <CardContent>
+            <Typography variant="h6" fontWeight="bold" gutterBottom>
+              Análisis crítico
+            </Typography>
+            <Typography variant="body1" paragraph>
+              La ausencia de un proceso formal de QA puede causar errores graves, afectar a los usuarios, perder dinero o dañar la reputación. Ejemplos:
+            </Typography>
+            <ul style={{ marginLeft: "20px" }}>
+              <li><strong>Therac-25:</strong> Sobredosis de radiación por fallo en software.</li>
+              <li><strong>App bancaria hipotética:</strong> Sin pruebas de seguridad, hackers accedieron a cuentas.</li>
+            </ul>
+          </CardContent>
+        </Card>
+
+        {/* Bibliografía */}
+        <Card sx={{ mb: 4, borderRadius: 3, boxShadow: 3 }}>
+          <CardContent>
+            <Typography variant="h6" fontWeight="bold" gutterBottom>
+              Bibliografía
+            </Typography>
+            <ul style={{ marginLeft: "20px" }}>
+              <li>ISO 25010: <a href="https://iso25000.com/index.php/normas-iso-25000/iso-25010" target="_blank">https://iso25000.com/index.php/normas-iso-25000/iso-25010</a></li>
+              <li>Secureframe. ISO/IEC/IEEE 29119: <a href="https://secureframe.com/es-es/frameworks-glossary/iso-iec-ieee-29119" target="_blank">https://secureframe.com/es-es/frameworks-glossary/iso-iec-ieee-29119</a></li>
+              <li>Prezi: Investigación sobre IEEE 730: <a href="https://prezi.com/p/b1glwreovdbc/investigacion-sobre-el-estandar-ieee-730/" target="_blank">https://prezi.com/p/b1glwreovdbc/investigacion-sobre-el-estandar-ieee-730/</a></li>
+              <li>Ruck, D. Understanding the Roles in Quality Assurance: <a href="https://about.codecov.io/blog/understanding-the-roles-in-quality-assurance/" target="_blank">https://about.codecov.io/blog/understanding-the-roles-in-quality-assurance/</a></li>
+              <li>LinkedIn: Beneficios y desafíos de ISO/IEC 25010: <a href="https://www.linkedin.com/advice/1/what-benefits-challenges-using-isoiec-25010?lang=es" target="_blank">https://www.linkedin.com/advice/1/what-benefits-challenges-using-isoiec-25010?lang=es</a></li>
+            </ul>
+          </CardContent>
+        </Card>
+
+        {/* Botón para regresar */}
+        <Box sx={{ textAlign: "center", mt: 4 }}>
           <Button variant="contained" color="primary" onClick={() => navigate("/")}>
             ← Volver a Inicio
           </Button>
