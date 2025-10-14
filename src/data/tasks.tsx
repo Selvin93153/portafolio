@@ -6,6 +6,9 @@ import Tarea3 from "../tasks/Tarea3";
 import Tarea5 from "../tasks/Tarea5";
 import Tarea4 from "../tasks/Tarea4";
 import Tarea6 from "../tasks/Tarea6";
+import Tarea7 from "../tasks/Tarea7";
+import Tarea8 from "../tasks/Tarea8";
+import Tarea9 from "../tasks/Tarea9";
 
 
 export type Task = {
@@ -54,6 +57,24 @@ export const tasks: Task[] = [
     title: "TECNICAS DE PRUEBA",
     summary: "Video explicando pruebas unitarias",
     content: <Tarea6 />,
+  },
+  {
+    id: "tarea7",
+    title: "Unit test - JS/TS",
+    summary: "Desarrollar una funcion en javascript o typescript con sus pruebas unitarias",
+    content: <Tarea7 />,
+  },
+  {
+    id: "tarea8",
+    title: "HOJA DE TRABAJO",
+    summary: "Desarrollar un ejemplo practico aplicando clases de equivalencia, analisis de valores de frontera y tabla de decisiones",
+    content: <Tarea8 />,
+  },
+  {
+    id: "tarea9",
+    title: "Registro de errores",
+    summary: "Usar herramienta de seguimiento de bugs de las sugeridas en clase, para registrar los bugs y realizar el seguimiento correspondiente.",
+    content: <Tarea9 />,
   },
 
 ];

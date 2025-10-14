@@ -79,7 +79,7 @@ export default function Tarea1() {
             </Typography>
 
             <Typography variant="subtitle1" fontWeight="bold" color="primary">
-              👉 Estilo assert (clásico)
+              Estilo assert (clásico)
             </Typography>
             <Typography variant="body2" component="pre" sx={{ bgcolor: "#eee", p: 2, borderRadius: 2 }}>
               {`const assert = require('chai').assert;
@@ -88,7 +88,7 @@ assert.typeOf('Hola', 'string'); // Pasa`}
             </Typography>
 
             <Typography variant="subtitle1" fontWeight="bold" color="primary" mt={2}>
-              👉 Estilo expect (más legible)
+              Estilo expect (más legible)
             </Typography>
             <Typography variant="body2" component="pre" sx={{ bgcolor: "#eee", p: 2, borderRadius: 2 }}>
               {`const expect = require('chai').expect;
@@ -98,7 +98,7 @@ expect([1, 2, 3]).to.include(2);`}
             </Typography>
 
             <Typography variant="subtitle1" fontWeight="bold" color="primary" mt={2}>
-              👉 Estilo should (modo natural)
+               Estilo should (modo natural)
             </Typography>
             <Typography variant="body2" component="pre" sx={{ bgcolor: "#eee", p: 2, borderRadius: 2 }}>
               {`require('chai').should();
